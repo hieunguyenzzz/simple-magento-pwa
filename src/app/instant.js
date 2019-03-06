@@ -4,6 +4,7 @@ export const SAVE_PRODUCT = 'SAVE_PRODUCT';
 export const SEARCH = 'SEARCH';
 export const LOADING_BEGIN = 'LOADING_BEGIN'
 export const LOADING_FINISH = 'LOADING_FINISH'
+export const ADD_TO_CART = 'ADD_TO_CART';
 
 // product filter
 export const ACTIVE = 'ACTIVE';

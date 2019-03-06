@@ -24,8 +24,8 @@ class ProductCard extends Component {
                     <p className="product-name">{name}</p>
                     <p>Tan Side Crossbody Sling Bag</p>
                     <Divider />
-                    <p className="product-price"><Icon name='tag'></Icon><strong>{formatter.format(price)}</strong>
-                        <Button floated='right'>Buy</Button>
+                    <p className="product-price"><Icon name='tag' /><strong>{formatter.format(price)}</strong>
+                        <Button floated='right'><Icon name='shop'  />Add To Cart</Button>
                     </p>
 
                 </Card.Content>

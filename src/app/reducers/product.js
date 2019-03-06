@@ -1,12 +1,12 @@
-import {ACTIVE, FETCH_PRODUCT, SAVE_PRODUCT} from "../instant";
+import {ACTIVE, SAVE_PRODUCT} from "../instant";
 import {combineReducers} from "redux";
 
-const byId = (state = {}, action) => {
+export const byId = (state = {}, action) => {
     switch (action.type) {
         case SAVE_PRODUCT:
-            const nextState = {...state};
+            const nextState = {};
             action.products.forEach(item => {
-                nextState[item.id] = item.data()
+                nextState[item.id] = item
             });
 
             return nextState;
@@ -15,11 +15,10 @@ const byId = (state = {}, action) => {
     }
 }
 
-const allId = (state = [], action) => {
-    debugger;
+export const allId = (state = [], action) => {
     switch (action.type) {
         case SAVE_PRODUCT:
-            let nextState = [...state];
+            let nextState = [];
             action.products.forEach(item => {
                 nextState = [...nextState.filter(productId => productId !== item.id), item.id];
             });
@@ -30,14 +29,6 @@ const allId = (state = [], action) => {
     }
 }
 
-const lastProduct = (state = null, action) => {
-    switch (action.type) {
-        case SAVE_PRODUCT:
-            return action.products[action.response.length - 1];
-        default:
-            return state
-    }
-}
 
 // @todo: apply filter
 export const getFilteredProduct = (product, filter = ACTIVE) => {
@@ -51,6 +42,5 @@ export const getTotalPage = (product) => {
 export const product = combineReducers({
     byId,
     allId,
-    //lastProduct // for pagination
 })
 

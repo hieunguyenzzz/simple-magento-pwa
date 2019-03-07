@@ -3,7 +3,7 @@ import {Card, Checkbox, Dimmer, Input, Loader, Pagination, Segment} from "semant
 import {getFilteredProduct} from '../../app/reducers/index';
 import {connect} from 'react-redux';
 import Product from "./Product";
-import {fetchData} from "../../app/action";
+import {fetchProduct} from "../../app/action";
 import {ENTITY_PRODUCT} from "../../app/instant";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapActionToProps = (dispatch) => {
     return {
-        fetchData: (entity, activePage) => dispatch(fetchData(entity, activePage)),
+        fetchProduct: (entity, activePage) => dispatch(fetchProduct(entity, activePage)),
     }
 }
 
@@ -24,8 +24,8 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        const {fetchData, activePage} = this.props;
-        fetchData(ENTITY_PRODUCT, activePage);
+        const {fetchProduct, activePage} = this.props;
+        fetchProduct(ENTITY_PRODUCT, activePage);
     }
 
     handlePaginationChange = (e, {activePage}) => {
